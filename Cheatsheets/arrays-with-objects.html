@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrays- cheat sheet</title>
+</head>
+<body>
+    <h1></h1>
+    ><script>
+    const lecturers = [
+        {
+            name: "Marius Akerbæk",
+            Office: "D1-016",
+            email: "toremake@hiof.no",
+            birthyear: 1983, 
+        }
+        {
+            name: "Daniela Blauhut",
+            office: "01-015",
+            email: "daniel@hiof.no",
+            birthyear: 1977,
+        },
+        
+
+        
+    ]
+
+    const profiles= document.getElementById("profiles")
+    lecturers.map(lecturers => {
+        profiles.innerHTML += `
+        <li>`
+
+        console.log(lecturers)
+    })
+    
+    </script>
+    
+</body>
+</html>
