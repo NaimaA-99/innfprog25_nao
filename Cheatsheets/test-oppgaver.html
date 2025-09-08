@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="message"></p>
+
+    <script>
+    
+    const navn = "Marius"
+    const alder = 39
+
+    let myndig 
+
+    if(alder > 17){
+        myndig = false
+    } else {
+        myndig= true
+    }
+
+    if(myndig === true) {
+        document.getElementById("message").innerHTML = " jeg heter " + navn + ". jeg er myndig.";
+ } else {
+        document.getElementById("message").innerHTML = " jeg heter " + navn + ". jeg er ikke myndig.";
+ }
+
+    </script>
+</body>
+</html>
