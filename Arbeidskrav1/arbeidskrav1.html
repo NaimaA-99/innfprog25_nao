@@ -9,13 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link href="ak1.css" rel="stylesheet" media="screen">
 </head>
-
 <body>
     <header>
         <h1 id="companyname"></h1>
         <form>
             <input type="text" />
-            <button type="button">Søk</button>
+            <button>Søk</button>
         </form>
     </header>
 
@@ -23,22 +22,22 @@
         <section id="employee_list">
             <article class="card">
                 <img src="avatar.png" alt="Navn Navnesen" />
-                <p>Hans Hansen<br />hans.hansen@email.com</p>
+                <p>Navn Navnesen<br />navn@email.com</p>
             </article>
 
             <article class="card">
                 <img src="avatar.png" alt="Navn Navnesen" />
-                <p>Jens Jensen<br />jens.jensen@email.com</p>
+                <p>Navn Navnesen<br />navn@email.com</p>
             </article>
 
-        </article class="card"> 
+            <article class="card">
                 <img src="avatar.png" alt="Navn Navnesen" />
-                <p>Trine Trinesdotter<br />trine.trinesdotter@email.com</p>
-         </article>
-        
+                <p>Navn Navnesen<br />navn@email.com</p>
+            </article>
+           <!--La til en extra article for tredje person-->
+
         </section>
     </main>
-
     <footer>
         <p>
             <a href="https://www.flaticon.com/free-icons/user" title="female icons">User icons created by Prosymbols Premium, Freepik, Smashicons, and Vectors Market - found at Flaticon</a>
@@ -46,32 +45,36 @@
     </footer>
 
     <script>
+        // Skrive feil. Endret fra Scripttt til riktig som er med en "t" Script
+       
         //Variabel with company name
-        const company = "Programmeriet";
+        const company = "Programmeriet"
 
         //List of employees
         const employees = [
             {name: "Hans Hansen", position: "Programmerer", email: "hans.hansen@email.com", office: "316", image: "man"},
             {name: "Jens Jensen", position: "Programmerer", email: "jens.jensen@email.com", office: "323", image: "man2"},
             {name: "Trine Trinesdotter", position: "Programmerer", email: "trine.trinesdotter@email.com", office: "304", image: "woman"},
-        ];
+        ]
 
         //Secret keys to access url and images
-        let images_folder = "img"; 
-        let secret_key = 0;
-        let ak_key;
-        
+        let images_folder = "img"
+        let secret_key = 0
+        let ak_key = 0
+        // La til = 0 på siste let
+
         //Turn on or off safeguard to allow system to run
-        const safeguard = true;
+        const safeguard = true 
         
         //Control of safeguard to create image folder name
-        if (safeguard === true) {
-            ak_key = secret_key + 1;
+        if(safeguard === true) {
+            ak_key = secret_key + 1
         }
-        const safe_images_folder = images_folder + ak_key;
-        console.log("Image folder: " + safe_images_folder); 
+        const safe_images_folder = images_folder += ak_key
+        console.log("Image folder: " + safe_images_folder)
+        // skrivefeil. endret fra console.logg til riktig console.log
 
-        let HTML_employees = "";
+        let HTML_employees = ""
 
         //Control of safeguard to print employee list
         if(safeguard === true) {
@@ -82,11 +85,13 @@
                     <p>${e.email}</p>
                 </article>`)
 
-                document.getElementById("employee_list").innerHTML = HTML_employees; 
+                document.getElementById("employee_list").innerHTML = HTML_employees
+                // Skrivefeil. Endret fra employeees til riktig employees.
+                // Skrivefeil. getElementbyid må være med stor B- getElementById.
         }
 
         //System prints
-        document.getElementById("companyname").innerHTML = company;
+        document.getElementById("companyname").innerHTML = company
     </script>
 </body>
 </html>
