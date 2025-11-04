@@ -14,13 +14,45 @@
     <script>
         /*
             Hva er en rekursiv funksjon?
-
+    
             --Ditt svar her. Husk kilder--
+        Det er en funskjon som kaller seg selv for å løse et problem. Den bryter ned problemene 
+        helt til den når en løsbar tilstand.
+ Kilde: https://www.google.com/search?q=hva+er+en+rekursiv+funksjon+og+hva+gj%C3%B8r+den&rlz=1C5CHFA_enNO1020NO1020&oq=hva+er+en+rekursiv+funksjon+og+hva+gj%C3%B8r+den&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQABiABBiiBDIKCAIQABiABBiiBDIKCAMQABiABBiiBNIBCTE1OTA3ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8
         */
 
-        function numberSelector() {
+        function numberSelector() { 
             // Din kode her
+        const randomNumber = Math.floor(Math.random() * 9) + 1;
+            const numberList = document.getElementById("numberList");
+
+        
+         if (numberList.children.length === 1 && numberList.children[0].textContent === 'Tall vil skrives ut her.') {
+            numberList.innerHTML = '';
+            }
+
+        const listItem = document.createElement("li");
+            listItem.textContent = `Valgt tall: ${randomNumber}`;
+            
+        numberList.appendChild(listItem); 
+
+           if (randomNumber === 4 || randomNumber === 7) {
+                
+            listItem.style.fontWeight = "bold";
+                listItem.textContent += " - STOPP! (Basistilfellet nådd)";
+                return; 
+            } else {
+               
+                numberSelector(); 
+            }
         }
+
+
+        numberSelector();
+
+        
+           
+    
     </script>
 </body>
 </html>
