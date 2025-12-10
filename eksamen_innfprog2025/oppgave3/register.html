@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Høgskolen JS - Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-header">
+    <h1>Høgskolen JS</h1>
+</header>
+
+<main class="container">
+    <section class="filter-panel">
+        <h2>Ansattregister</h2>
+
+        <div class="filter-row">
+            <button type="button" id="btnAlle">Vis alle ansatte</button>
+            <button type="button" id="btnUndervisere">Vis undervisere</button>
+            <button type="button" id="btnAdmin">Vis administrasjon</button>
+        </div>
+
+        <div class="filter-row">
+            <span class="filter-label">Vis kun stilling:</span>
+            <div id="stillingButtons" class="stilling-buttons">
+                
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Ansatte</h2>
+        <div id="ansatteContainer" class="ansatte-grid">
+            
+        </div>
+    </section>
+</main>
+
+<!-- Link til kodene fra mappedel 1 -->
+<script src="../oppgave1/register.js"></script>
+<script src="../oppgave1/actions.js"></script>
+
+<script>
+    // Henter HTML-elementene vi skal jobbe med
+    const ansatteContainer = document.getElementById("ansatteContainer");
+    const stillingButtonsContainer = document.getElementById("stillingButtons");
+
+    // Viser alle ansatte
+    function visAlleAnsatte() {
+        ansatteContainer.innerHTML = listAlleAnsatte();
+    }
+
+    // Viser kun undervisere
+    function visUndervisere() {
+        ansatteContainer.innerHTML = listUndervisere();
+    }
+
+    // Viser administrasjon
+    function visAdministrasjon() {
+        ansatteContainer.innerHTML = listAdministrasjon();
+    }
+
+    // Lager knapper for alle stillinger automatisk fra stillinger-lista
+    function lagStillingKnapper() {
+        stillingButtonsContainer.innerHTML = "";
+
+        for (let i = 0; i < stillinger.length; i++) {
+            const stilling = stillinger[i];
+            const knapp = document.createElement("button");
+            knapp.type = "button";
+            knapp.textContent = stilling;
+
+            knapp.addEventListener("click", function () {
+                ansatteContainer.innerHTML = listAnsatteMedStilling(stilling);
+            });
+
+            stillingButtonsContainer.appendChild(knapp);
+        }
+    }
+
+    // Kobler hovedknappene til funksjonene
+    document.getElementById("btnAlle").addEventListener("click", visAlleAnsatte);
+    document.getElementById("btnUndervisere").addEventListener("click", visUndervisere);
+    document.getElementById("btnAdmin").addEventListener("click", visAdministrasjon);
+
+    // Når siden lastes: lag stillingsknapper og vis alle ansatte
+    lagStillingKnapper();
+    visAlleAnsatte();
+</script>
+</body>
+</html>

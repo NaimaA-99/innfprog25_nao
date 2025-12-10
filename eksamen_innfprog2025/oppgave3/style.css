@@ -1,0 +1,167 @@
+/* Reset / generelt */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #e6f3fb;   /* lys blå bakgrunn */
+  color: #222;
+}
+
+/* Toppbanner */
+.top-header {
+  background-color: #1388b8;   /* blå stripe */
+  color: #fff;
+  padding: 1.4rem 0;
+  text-align: center;
+}
+
+.top-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Hovedinnhold */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+/* Seksjoner */
+.filter-panel,
+.form-section,
+.ansatt-liste-section {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+
+/* Filter-rader (øverst på register-siden) */
+.filter-row {
+  margin: 0.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.filter-label {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.stilling-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* Knapper generelt */
+button {
+  border: 1px solid #1388b8;
+  background-color: #ffffff;
+  color: #1388b8;
+  padding: 0.4rem 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+button:hover {
+  background-color: #1388b8;
+  color: #fff;
+}
+
+.primary-btn {
+  margin-top: 0.8rem;
+}
+
+/* Skjema på admin-siden */
+#ansattForm {
+  background-color: #f5fbff;
+  padding: 1.2rem 1.4rem;
+  border-radius: 6px;
+  border: 1px solid #c8e0f0;
+  max-width: 380px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.8rem;
+}
+
+label {
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+
+input,
+select {
+  padding: 0.4rem 0.5rem;
+  border-radius: 3px;
+  border: 1px solid #c0cbd6;
+  font-size: 0.9rem;
+}
+
+/* Grid med ansatte-kort */
+.ansatte-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Selve kortene */
+.ansatt-kort {
+  background-color: #ffffff;
+  border: 1px solid #d3e1ec;
+  border-radius: 6px;
+  padding: 0.9rem 1.1rem;
+  min-width: 260px;
+  flex: 1 1 260px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.ansatt-kort h2 {
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+}
+
+.ansatt-kort p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+}
+
+.ansatt-kort strong {
+  font-weight: 600;
+}
+
+.ansatt-kort a {
+  color: #0a5b99;
+  text-decoration: none;
+}
+
+.ansatt-kort a:hover {
+  text-decoration: underline;
+}
+
+/* Slett-knappen på admin-siden */
+.slett-knapp {
+  margin-top: 0.8rem;
+  background-color: #fbe3e3;
+  border-color: #d88;
+  color: #a00;
+}
+
+.slett-knapp:hover {
+  background-color: #d88;
+  color: #fff;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Høgskolen JS - Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-header">
+    <h1>Høgskolen JS</h1>
+</header>
+
+<main class="container">
+    <section class="form-section">
+        <h2>Legg til ansatt</h2>
+
+        <form id="ansattForm">
+            <div class="form-group">
+                <label for="fornavn">Fornavn</label>
+                <input type="text" id="fornavn" name="fornavn" placeholder="fornavn" required>
+            </div>
+
+            <div class="form-group">
+                <label for="etternavn">Etternavn</label>
+                <input type="text" id="etternavn" name="etternavn" placeholder="etternavn" required>
+            </div>
+
+            <div class="form-group">
+                <label for="epost">E-post</label>
+                <input type="email" id="epost" name="epost" placeholder="epost" required>
+            </div>
+
+            <div class="form-group">
+                <label for="kontor">Kontor</label>
+                <input type="text" id="kontor" name="kontor" placeholder="kontor" required>
+            </div>
+
+            <div class="form-group">
+                <label for="stilling">Stilling</label>
+                <select id="stilling" name="stilling" required>
+                    <option value="">Velg stilling</option>
+                    <!-- Fylles med stillinger fra register.js -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="kurs">Kurs</label>
+                <input
+                        type="text"
+                        id="kurs"
+                        name="kurs"
+                        placeholder="kursansvar (skill med ; mellom kurs)">
+            </div>
+
+            <button type="submit" class="primary-btn">Legg til ansatt</button>
+        </form>
+    </section>
+
+    <section class="ansatt-liste-section">
+        <h2>Ansatte</h2>
+        <div id="ansatteAdminContainer" class="ansatte-grid">
+            <!-- Ansattkort + slett-knapper fylles inn med JS -->
+        </div>
+    </section>
+</main>
+
+<!-- Link til kodene fra mappedel 1 -->
+<script src="../oppgave1/register.js"></script>
+<script src="../oppgave1/actions.js"></script>
+
+<script>
+    const stillingSelect = document.getElementById("stilling");
+    const ansattForm = document.getElementById("ansattForm");
+    const ansatteAdminContainer = document.getElementById("ansatteAdminContainer");
+
+    // Fyller nedtrekksmenyen med stillinger fra register.js
+    function fyllStillingSelect() {
+        stillingSelect.innerHTML = '<option value="">Velg stilling</option>';
+
+        for (let i = 0; i < stillinger.length; i++) {
+            const stilling = stillinger[i];
+            const option = document.createElement("option");
+            option.value = stilling;
+            option.textContent = stilling;
+            stillingSelect.appendChild(option);
+        }
+    }
+
+    // Tegner alle ansatte i admin-lista, med slettknapp
+    function tegnAnsatteAdmin() {
+        ansatteAdminContainer.innerHTML = "";
+
+        for (let i = 0; i < ansatte.length; i++) {
+            const wrapper = document.createElement("div");
+
+            // bruker funksjonen fra actions.js
+            wrapper.innerHTML = lagAnsattHTML(i);
+
+            const article = wrapper.firstElementChild;
+
+            const slettKnapp = document.createElement("button");
+            slettKnapp.textContent = "Slett ansatt";
+            slettKnapp.className = "slett-knapp";
+
+            slettKnapp.addEventListener("click", function () {
+                slettAnsatt(i);
+                tegnAnsatteAdmin(); // tegn på nytt etter sletting
+            });
+
+            article.appendChild(slettKnapp);
+            ansatteAdminContainer.appendChild(article);
+        }
+    }
+
+    // Håndterer innsending av skjemaet
+    ansattForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const fornavn = document.getElementById("fornavn").value.trim();
+        const etternavn = document.getElementById("etternavn").value.trim();
+        const epost = document.getElementById("epost").value.trim();
+        const kontor = document.getElementById("kontor").value.trim();
+        const stilling = document.getElementById("stilling").value;
+        const kurs = document.getElementById("kurs").value;
+
+        if (!fornavn || !etternavn || !epost || !kontor || !stilling) {
+            alert("Fyll ut alle påkrevde felt.");
+            return;
+        }
+
+        // bruker funksjonen fra actions.js
+        leggTilUnderviser(fornavn, etternavn, kontor, stilling, epost, kurs);
+
+        ansattForm.reset();
+        fyllStillingSelect(); // setter tilbake "Velg stilling"
+
+        tegnAnsatteAdmin();
+    });
+
+    // Init: fyll nedtrekksmeny og tegn liste
+    fyllStillingSelect();
+    tegnAnsatteAdmin();
+</script>
+</body>
+</html>
