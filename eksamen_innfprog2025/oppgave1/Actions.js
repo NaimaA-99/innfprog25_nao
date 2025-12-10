@@ -1,8 +1,6 @@
 
 // Funksjoner som jobber med dataene i register.js 
 
-
-// Hjelpelister for å skille undervisere og administrasjon
 const laererStillinger = ["Professor", "Lektor", "Rektor", "Dekan"]; 
 const adminStillinger = ["Vaktmester"]; 
 
@@ -20,7 +18,7 @@ function lagAnsattHTML(index) {
     kursTekst = ansatt.kursansvar.join(", ");
   }
 
-  // HTML strukturen for en ansatt
+  
   return `
     <article class="ansatt-kort" data-index="${index}">
       <h2>${ansatt.fornavn} ${ansatt.etternavn}</h2>
@@ -123,7 +121,7 @@ function leggTilUnderviser(fornavn, etternavn, kontor, stilling, epost, kurs) {
   if (Array.isArray(kurs)) {
     kursListe = kurs;
   } else if (typeof kurs === "string" && kurs.trim() !== "") {
-    // f.eks. "Programmering 1; Webutvikling"
+    
     kursListe = kurs
       .split(";")
       .map(k => k.trim())
@@ -141,7 +139,7 @@ function leggTilUnderviser(fornavn, etternavn, kontor, stilling, epost, kurs) {
 
   ansatte.push(nyAnsatt);
 
-  // Returner indexen til den nye ansatte (kan være nyttig i admin.html)
+  
   return ansatte.length - 1;
 }
 

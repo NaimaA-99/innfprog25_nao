@@ -37,31 +37,31 @@
     </section>
 </main>
 
-<!-- Link til kodene fra mappedel 1 -->
+
 <script src="../oppgave1/register.js"></script>
 <script src="../oppgave1/actions.js"></script>
 
 <script>
-    // Henter HTML-elementene vi skal jobbe med
+    
     const ansatteContainer = document.getElementById("ansatteContainer");
     const stillingButtonsContainer = document.getElementById("stillingButtons");
 
-    // Viser alle ansatte
+    
     function visAlleAnsatte() {
         ansatteContainer.innerHTML = listAlleAnsatte();
     }
 
-    // Viser kun undervisere
+    
     function visUndervisere() {
         ansatteContainer.innerHTML = listUndervisere();
     }
 
-    // Viser administrasjon
+    
     function visAdministrasjon() {
         ansatteContainer.innerHTML = listAdministrasjon();
     }
 
-    // Lager knapper for alle stillinger automatisk fra stillinger-lista
+    
     function lagStillingKnapper() {
         stillingButtonsContainer.innerHTML = "";
 
@@ -79,12 +79,12 @@
         }
     }
 
-    // Kobler hovedknappene til funksjonene
+    
     document.getElementById("btnAlle").addEventListener("click", visAlleAnsatte);
     document.getElementById("btnUndervisere").addEventListener("click", visUndervisere);
     document.getElementById("btnAdmin").addEventListener("click", visAdministrasjon);
 
-    // Når siden lastes: lag stillingsknapper og vis alle ansatte
+    
     lagStillingKnapper();
     visAlleAnsatte();
 </script>

@@ -1,4 +1,5 @@
-/* Reset / generelt */
+
+
 * {
   box-sizing: border-box;
 }
@@ -6,13 +7,13 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #e6f3fb;   /* lys blå bakgrunn */
+  background-color: #e6f3fb;   
   color: #222;
 }
 
-/* Toppbanner */
+
 .top-header {
-  background-color: #1388b8;   /* blå stripe */
+  background-color: #1388b8;   
   color: #fff;
   padding: 1.4rem 0;
   text-align: center;
@@ -24,14 +25,14 @@ body {
   font-weight: 600;
 }
 
-/* Hovedinnhold */
+
 .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 2rem 1.5rem 3rem;
 }
 
-/* Seksjoner */
+
 .filter-panel,
 .form-section,
 .ansatt-liste-section {
@@ -43,7 +44,7 @@ h2 {
   margin-bottom: 0.8rem;
 }
 
-/* Filter-rader (øverst på register-siden) */
+
 .filter-row {
   margin: 0.5rem 0;
   display: flex;
@@ -63,7 +64,7 @@ h2 {
   gap: 0.4rem;
 }
 
-/* Knapper generelt */
+
 button {
   border: 1px solid #1388b8;
   background-color: #ffffff;
@@ -83,7 +84,7 @@ button:hover {
   margin-top: 0.8rem;
 }
 
-/* Skjema på admin-siden */
+
 #ansattForm {
   background-color: #f5fbff;
   padding: 1.2rem 1.4rem;
@@ -111,14 +112,14 @@ select {
   font-size: 0.9rem;
 }
 
-/* Grid med ansatte-kort */
+
 .ansatte-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
-/* Selve kortene */
+
 .ansatt-kort {
   background-color: #ffffff;
   border: 1px solid #d3e1ec;
@@ -153,7 +154,7 @@ select {
   text-decoration: underline;
 }
 
-/* Slett-knappen på admin-siden */
+
 .slett-knapp {
   margin-top: 0.8rem;
   background-color: #fbe3e3;

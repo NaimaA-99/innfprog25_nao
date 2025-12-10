@@ -60,12 +60,12 @@
     <section class="ansatt-liste-section">
         <h2>Ansatte</h2>
         <div id="ansatteAdminContainer" class="ansatte-grid">
-            <!-- Ansattkort + slett-knapper fylles inn med JS -->
+            
         </div>
     </section>
 </main>
 
-<!-- Link til kodene fra mappedel 1 -->
+
 <script src="../oppgave1/register.js"></script>
 <script src="../oppgave1/actions.js"></script>
 
@@ -74,7 +74,7 @@
     const ansattForm = document.getElementById("ansattForm");
     const ansatteAdminContainer = document.getElementById("ansatteAdminContainer");
 
-    // Fyller nedtrekksmenyen med stillinger fra register.js
+    
     function fyllStillingSelect() {
         stillingSelect.innerHTML = '<option value="">Velg stilling</option>';
 
@@ -87,14 +87,14 @@
         }
     }
 
-    // Tegner alle ansatte i admin-lista, med slettknapp
+    
     function tegnAnsatteAdmin() {
         ansatteAdminContainer.innerHTML = "";
 
         for (let i = 0; i < ansatte.length; i++) {
             const wrapper = document.createElement("div");
 
-            // bruker funksjonen fra actions.js
+            
             wrapper.innerHTML = lagAnsattHTML(i);
 
             const article = wrapper.firstElementChild;
@@ -105,7 +105,7 @@
 
             slettKnapp.addEventListener("click", function () {
                 slettAnsatt(i);
-                tegnAnsatteAdmin(); // tegn på nytt etter sletting
+                tegnAnsatteAdmin(); 
             });
 
             article.appendChild(slettKnapp);
@@ -113,7 +113,7 @@
         }
     }
 
-    // Håndterer innsending av skjemaet
+    
     ansattForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
@@ -129,16 +129,16 @@
             return;
         }
 
-        // bruker funksjonen fra actions.js
+        
         leggTilUnderviser(fornavn, etternavn, kontor, stilling, epost, kurs);
 
         ansattForm.reset();
-        fyllStillingSelect(); // setter tilbake "Velg stilling"
+        fyllStillingSelect(); 
 
         tegnAnsatteAdmin();
     });
 
-    // Init: fyll nedtrekksmeny og tegn liste
+    
     fyllStillingSelect();
     tegnAnsatteAdmin();
 </script>
